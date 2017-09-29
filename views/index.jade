@@ -1,0 +1,113 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title  John Mayer FANPAGE 
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    link(href='http://fonts.googleapis.com/css?family=Grand+Hotel&subset=latin,latin-ext', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Inder&subset=latin,latin-ext', rel='stylesheet', type='text/css')
+    link(href='stylesheets/reset.css', rel='stylesheet')
+    link(href='stylesheets/jmstyle.css', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/font-awesome/css/font-awesome.min.css')
+  body
+    p#tytul John Mayer - FANPAGE
+    img.navfoto(alt='John Mayer naglowek', src='images/glowne.jpg')
+    nav
+      ul
+        li
+          a(href='#artysta') O artyście
+        li
+          a(href='#dyskografia') Dyskografia
+        li
+          a(href='#ksiega') Księga Gości
+        li
+          a(href='#kontakt') Kontakt
+    #wrap
+      #artysta
+        h1 John Clayton Mayer
+        .part
+          ul.back
+            li
+              | Data urodzenia: 
+              .efekt 16.10.1977
+            li
+              | Kraj: 
+              .efekt USA
+            li
+              | Instrumenty: 
+              .efekt Gitary - elektryczna, akustyczna; wokal; harmonijka
+            li
+              | Gatunek: 
+              .efekt rock, blues, pop, pountry
+            li
+              | Wytwórnia płytowa: 
+              .efekt Columbia Records
+            li
+              | Zespół: 
+              .efekt John Mayer Trio
+        img.part.artfot(src='images/about.jpg', alt='zdjecie artysty')
+        p.inne
+          | Gdy usłyszał solówkę gitarową Marty McFly'a z filmu Powrót do przyszłości, zaczął interesować się tym instrumentem. Gdy miał 13 lat ojciec wypożyczył dla niego gitarę. Sąsiad dał mu kasetę z nagraniami Steviego Ray Vaughana, co wzbudziło w Mayerze miłość do bluesa. Zaczął pobierać lekcje gry od właściciela lokalnego sklepu z gitarami, Ala Ferrante. W wieku lat 19 Mayer rozpoczął studia w Berklee College of Music w Bostonie. Po dwóch semestrach przerwał naukę i założył ze swoim znajomym, Clayem Cookiem, duet LoFi Maters. Gdy Mayer zaczął skłaniać się ku muzyce popowej, Cook porzucił duet i Mayer rozpoczął karierę solową.
+      // koniec sekcji artysta
+      #dyskografia
+        h1 Dyskografia
+        each plyta in plyty
+          .back.disc
+            h2=plyta.nazwa
+            img(src='#{plyta.cover}', alt='#{plyta.nazwa}')
+            p=plyta.rok
+            p=plyta.wytwornia
+        
+
+      #ksiega
+        h1 Księga gości
+        .back
+          p
+            | Jesteś fanem JM? Masz jakieś uwagi do strony? Napisz do mnie! Wypowiedzi zostaną opublikowane natychmiast!
+          form(method='POST' action='/formularz')
+            textarea(type='text' name='wpis')
+            p Twoja nazwa:
+            input(type='text', name='nick')
+            br
+            button(type=submit name='Wyslij') Wyślij!
+            form
+          
+          each kom in wpisy
+            .komentarze
+              p= kom.wpis
+              p= kom.nick
+
+
+      // koniec sekcji ksiega
+      #kontakt
+        h1 Kontakt
+        .moja
+          img.part(src='images/gosia.jpg', alt='zdjęcie')
+          .part.efekt.info
+            p Autor fanpage:Małgorzata Olak
+            p Znajdź mnie:
+            p
+              ul
+                li
+                  a(href='http://facebook.com')
+                    i.fa.fa-facebook.fa-lg
+                li
+                  a(href='http://twitter.com')
+                    i.fa.fa-twitter.fa-lg
+                li
+                  a(href='http://pinterest.com')
+                    i.fa.fa-pinterest.fa-lg
+                li
+                  a(href='http://lastfm.com')
+                    i.fa.fa-lastfm.fa-lg
+      // koniec sekcji kontakt
+      footer
+        a(href='#tytul')
+          i.fa.fa-arrow-circle-up
+          | W górę
+        p Zaawansowane techniki WWW 2015/2016, autor projektu: Małgorzata Olak
+    // koniec zawijania
